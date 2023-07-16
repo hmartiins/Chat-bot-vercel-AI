@@ -2,18 +2,20 @@
 
 import { useChat } from "ai/react";
 
-import { Button } from "./ui/button";
 import {
+  Avatar,
   Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from "./ui/card";
-import { Input } from "./ui/input";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { ScrollArea } from "./ui/scroll-area";
+  AvatarFallback,
+  AvatarImage,
+  Button,
+  Input,
+  ScrollArea,
+} from "./ui";
 
 import { PaperPlaneRight } from "@phosphor-icons/react";
 
