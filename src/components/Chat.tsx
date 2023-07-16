@@ -27,9 +27,9 @@ export function Chat() {
   return (
     <Card className="w-[440px]">
       <CardHeader>
-        <CardTitle>Chat AI</CardTitle>
-        <CardDescription>
-          Using a Vercel SDK to create a chat bot.
+        <CardTitle className="dark:text-white">Chat AI</CardTitle>
+        <CardDescription className="dark:text-white">
+          Usando o SDK da Vercel para criar um chat bot.
         </CardDescription>
       </CardHeader>
 
@@ -49,7 +49,9 @@ export function Chat() {
                 </Avatar>
               )}
 
-              <p className="leading-relaxed">{message.content}</p>
+              <p className="leading-relaxed dark:text-white">
+                {message.content}
+              </p>
             </div>
           ))}
         </ScrollArea>
@@ -58,6 +60,7 @@ export function Chat() {
       <CardFooter>
         <form className="w-full flex gap-2" onSubmit={handleSubmit}>
           <Input
+            className="dark:text-white"
             aria-label="Escreva algo"
             title="Escreva algo"
             placeholder="Escreva uma mensagem?"
