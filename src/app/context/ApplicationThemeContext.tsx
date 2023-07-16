@@ -27,9 +27,7 @@ export const ApplicationThemeContext = createContext(
 export function ApplicationThemeContextProvider({
   children,
 }: ApplicationThemeProviderProps) {
-  const [isDarkMode, setIsDarkMode] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   function toggleDarkMode() {
     if (isDarkMode) {
@@ -44,14 +42,16 @@ export function ApplicationThemeContextProvider({
   }
 
   useEffect(() => {
-    if (isDarkMode) {
+    if (localStorage.getItem("theme") === "dark") {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
+      setIsDarkMode(true);
     } else {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
+      setIsDarkMode(false);
     }
-  });
+  }, [setIsDarkMode, isDarkMode]);
 
   return (
     <ApplicationThemeContext.Provider
