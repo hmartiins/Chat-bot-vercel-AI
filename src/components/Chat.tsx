@@ -15,6 +15,8 @@ import { Input } from "./ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { ScrollArea } from "./ui/scroll-area";
 
+import { PaperPlaneRight } from "@phosphor-icons/react";
+
 export function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
     api: "/api/chat",
@@ -30,12 +32,9 @@ export function Chat() {
       </CardHeader>
 
       <CardContent>
-        <ScrollArea className="pr-4 h-[600px] w-full">
+        <ScrollArea className="pr-4 h-[60vh] w-full">
           {messages.map((message) => (
-            <div
-              key={message.id}
-              className="flex gap-3 text-slate-600 text-sm mb-4"
-            >
+            <div key={message.id} className="flex gap-3  text-sm mb-4">
               {message.role === "user" ? (
                 <Avatar className="border-slate-200 border-2">
                   <AvatarFallback>HM</AvatarFallback>
@@ -44,15 +43,11 @@ export function Chat() {
               ) : (
                 <Avatar className="border-slate-200 border-2">
                   <AvatarFallback>GPT</AvatarFallback>
-                  <AvatarImage src="https://buzzlead.com.br/wp-content/uploads/2023/03/5CF753E4-48A8-49DE-A4CE-D830F699114D-1024x1024.png" />
+                  <AvatarImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKxuRgZT75U1SAtM-fdsKco9ysLpz3wPuCWNoNsB1YDajwbdcVbXo5e9kfw16U0fpMk5I&usqp=CAU" />
                 </Avatar>
               )}
 
-              <p className="leading-relaxed">
-                {/* <span className="block font-bold text-slate-700">
-              </span> */}
-                {message.content}
-              </p>
+              <p className="leading-relaxed">{message.content}</p>
             </div>
           ))}
         </ScrollArea>
@@ -61,11 +56,15 @@ export function Chat() {
       <CardFooter>
         <form className="w-full flex gap-2" onSubmit={handleSubmit}>
           <Input
-            placeholder="How can I help you?"
+            aria-label="Escreva algo"
+            title="Escreva algo"
+            placeholder="Escreva uma mensagem?"
             value={input}
             onChange={handleInputChange}
           />
-          <Button type="submit">Send</Button>
+          <Button className="bg-blue-500 text-white" type="submit">
+            <PaperPlaneRight weight="bold" />
+          </Button>
         </form>
       </CardFooter>
     </Card>
