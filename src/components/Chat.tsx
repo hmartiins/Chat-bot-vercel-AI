@@ -16,8 +16,7 @@ import {
   Input,
   ScrollArea,
 } from "./ui";
-
-import { PaperPlaneRight } from "@phosphor-icons/react";
+import { ArrowRightToLine } from "lucide-react";
 
 export function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
@@ -68,7 +67,7 @@ export function Chat() {
             onChange={handleInputChange}
           />
           <Button className="bg-blue-500 text-white" type="submit">
-            <PaperPlaneRight weight="bold" />
+            <ArrowRightToLine />
           </Button>
         </form>
       </CardFooter>
